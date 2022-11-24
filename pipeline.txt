@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone Git') {
+            steps {
+                git 'https://github.com/Akhil-Tavva/Jenkins_Assignment.git'
+            }
+        }
+        stage('Build Code') {
+            steps {
+                sh "/usr/bin/python3 gcd.py"
+            }
+        }
+        stage('Test Code') {
+            steps {
+                sh "/usr/bin/python3 Test.py"
+            }
+        }
+        stage('Monitor'){
+            steps{
+                echo "This is Monitoring stage"
+            }
+        }
+    }
+}

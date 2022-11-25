@@ -11,14 +11,14 @@ pipeline {
                 sh "/usr/bin/python3 gcd.py"
             }
         }
-        stage('Test Code') {
+        stage('Correct test cases') {
             steps {
-                sh "/usr/bin/python3 Test.py"
+                sh "/usr/bin/python3 Test1.py"
             }
         }
-        stage('Monitor'){
+        stage('Fail test cases'){
             steps{
-                echo "This is Monitoring stage"
+                sh "/usr/bin/python3 Test2.py"
             }
         }
     }

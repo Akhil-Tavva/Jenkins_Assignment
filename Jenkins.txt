@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone Git') {
+            steps {
+                git 'https://github.com/Akhil-Tavva/Jenkins_Assignment.git'
+            }
+        }
+        stage('Build Code') {
+            steps {
+                sh "/usr/bin/python3 gcd.py"
+            }
+        }
+        stage('Correct test cases') {
+            steps {
+                sh "/usr/bin/python3 Test1.py"
+            }
+        }
+        stage('Fail test cases'){
+            steps{
+                sh "/usr/bin/python3 Test2.py"
+            }
+        }
+    }
+}
